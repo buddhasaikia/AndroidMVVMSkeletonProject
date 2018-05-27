@@ -109,4 +109,5 @@ dependencies {
     implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stetho"
     implementation "com.facebook.fresco:fresco:$rootProject.ext.fresco"
     androidTestCompile "com.google.code.findbugs:jsr305:$rootProject.ext.findBugs"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
 }
