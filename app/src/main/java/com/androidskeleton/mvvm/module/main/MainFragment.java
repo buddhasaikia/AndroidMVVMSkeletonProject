@@ -1,20 +1,29 @@
 package com.androidskeleton.mvvm.module.main;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.androidskeleton.mvvm.R;
 import com.androidskeleton.mvvm.di.scope.PerActivity;
 import com.androidskeleton.mvvm.module.base.DaggerBaseFragment;
+import com.androidskeleton.mvvm.util.CustomViewModelFactory;
+
+import javax.inject.Inject;
 
 @PerActivity
 public class MainFragment extends DaggerBaseFragment {
 
     private OnFragmentInteractionListener mListener;
+    @Inject
+    CustomViewModelFactory viewModelFactory;
+    private MainViewModel mainViewModel;
 
     public MainFragment() {
         // Required empty public constructor
@@ -39,6 +48,14 @@ public class MainFragment extends DaggerBaseFragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
+        TextView lblGreetings = view.findViewById(R.id.lbl_greetings);
+        lblGreetings.setText(mainViewModel.greetings());
     }
 
     public void onButtonPressed(Uri uri) {

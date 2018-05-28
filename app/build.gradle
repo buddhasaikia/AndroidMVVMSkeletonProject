@@ -21,19 +21,19 @@ android {
             applicationId "com.androidskeleton.dev"
             buildConfigField 'String', 'PREF_NAME', '"pref_dev"'
             buildConfigField 'String', 'FLAVOR_CODE', '"D"'
-            buildConfigField 'String', 'URL_HOST_API', '""'
+            buildConfigField 'String', 'URL_HOST_API', '"https://api.yourdomain.com"'
         }
         prod {
             applicationId "com.androidskeleton"
             buildConfigField 'String', 'PREF_NAME', '"pref_prod"'
             buildConfigField 'String', 'FLAVOR_CODE', '"P"'
-            buildConfigField 'String', 'URL_HOST_API', '""'
+            buildConfigField 'String', 'URL_HOST_API', '"https://api.yourdomain.com"'
         }
         mock {
             applicationId "com.androidskeleton.mock"
             buildConfigField 'String', 'PREF_NAME', '"pref_mock"'
             buildConfigField 'String', 'FLAVOR_CODE', '"M"'
-            buildConfigField 'String', 'URL_HOST_API', '""'
+            buildConfigField 'String', 'URL_HOST_API', '"https://api.yourdomain.com"'
         }
     }
     signingConfigs {

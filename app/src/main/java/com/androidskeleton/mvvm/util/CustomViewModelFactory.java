@@ -7,12 +7,14 @@ import android.support.annotation.NonNull;
 import com.androidskeleton.mvvm.data.repository.Repository;
 import com.androidskeleton.mvvm.module.main.MainViewModel;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
 public class CustomViewModelFactory implements ViewModelProvider.Factory {
     private final Repository repository;
 
+    @Inject
     public CustomViewModelFactory(Repository repository) {
         this.repository = repository;
     }

@@ -12,4 +12,8 @@ public class MainViewModel extends ViewModel {
 
         this.repository = repository;
     }
+
+    public String greetings() {
+        return "Hola! I am ViewModel at your service!";
+    }
 }
