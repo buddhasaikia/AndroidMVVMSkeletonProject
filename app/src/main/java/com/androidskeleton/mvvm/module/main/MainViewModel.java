@@ -2,9 +2,13 @@ package com.androidskeleton.mvvm.module.main;
 
 import android.arch.lifecycle.ViewModel;
 
+import com.androidskeleton.mvvm.data.datasource.base.BaseViewModel;
+import com.androidskeleton.mvvm.data.datasource.base.DataSource;
 import com.androidskeleton.mvvm.data.repository.Repository;
 
-public class MainViewModel extends ViewModel {
+import io.reactivex.Observable;
+
+public class MainViewModel extends BaseViewModel implements DataSource.Greetings {
 
     private Repository repository;
 
@@ -13,7 +17,8 @@ public class MainViewModel extends ViewModel {
         this.repository = repository;
     }
 
-    public String greetings() {
-        return "Hola! I am ViewModel at your service!";
+    public Observable<String> greetings() {
+        return repository.greetings();
+        //return "Hola! I am ViewModel at your service!";
     }
 }

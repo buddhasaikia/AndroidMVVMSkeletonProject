@@ -14,8 +14,12 @@ import com.androidskeleton.mvvm.R;
 import com.androidskeleton.mvvm.di.scope.PerActivity;
 import com.androidskeleton.mvvm.module.base.DaggerBaseFragment;
 import com.androidskeleton.mvvm.util.CustomViewModelFactory;
+import com.androidskeleton.mvvm.util.ErrorMessageFactory;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 @PerActivity
 public class MainFragment extends DaggerBaseFragment {
@@ -23,6 +27,8 @@ public class MainFragment extends DaggerBaseFragment {
     private OnFragmentInteractionListener mListener;
     @Inject
     CustomViewModelFactory viewModelFactory;
+    @Inject
+    ErrorMessageFactory errorMessageFactory;
     private MainViewModel mainViewModel;
 
     public MainFragment() {
@@ -54,8 +60,28 @@ public class MainFragment extends DaggerBaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel.class);
-        TextView lblGreetings = view.findViewById(R.id.lbl_greetings);
-        lblGreetings.setText(mainViewModel.greetings());
+        final TextView lblGreetings = view.findViewById(R.id.lbl_greetings);
+        mainViewModel.greetings()
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        lblGreetings.setText(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        errorMessageFactory.getError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
+                });
     }
 
     public void onButtonPressed(Uri uri) {

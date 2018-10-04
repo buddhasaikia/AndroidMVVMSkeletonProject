@@ -11,10 +11,6 @@ import java.net.NoRouteToHostException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-/**
- * Created by Buddha Saikia on 03-05-2017.
- */
-
 public class ErrorMessageFactory {
     private final Context context;
 

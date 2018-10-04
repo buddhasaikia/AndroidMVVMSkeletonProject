@@ -1,7 +1,7 @@
 package com.androidskeleton.mvvm.data.api;
 
 /**
- * Created by Buddha Saikia on 03/06/2017.
+ * Created by Buddha Saikia on 06-10-2018.
  */
 
 public interface ApiService {

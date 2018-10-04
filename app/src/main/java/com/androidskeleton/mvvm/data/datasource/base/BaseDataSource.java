@@ -9,9 +9,8 @@ import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-
 /**
- * Created by Buddha Saikia on 01-06-2017.
+ * Created by Buddha Saikia on 06-10-2018.
  */
 public class BaseDataSource {
     protected <T> ObservableTransformer<T, T> applySchedulersIO() {

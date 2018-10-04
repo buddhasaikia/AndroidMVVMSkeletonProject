@@ -1,10 +1,16 @@
 package com.androidskeleton.mvvm.data.datasource.base;
 
+
+import io.reactivex.Observable;
+
 /**
- * Created by Buddha Saikia on 03-06-2017.
+ * Created by Buddha Saikia on 06-10-2018.
  */
 
 public interface DataSource {
 
+    interface Greetings{
+        Observable<String> greetings();
+    }
 
 }
