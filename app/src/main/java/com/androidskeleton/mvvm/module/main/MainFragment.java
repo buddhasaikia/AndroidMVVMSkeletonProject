@@ -15,6 +15,7 @@ import com.androidskeleton.mvvm.di.scope.PerActivity;
 import com.androidskeleton.mvvm.module.base.DaggerBaseFragment;
 import com.androidskeleton.mvvm.util.CustomViewModelFactory;
 import com.androidskeleton.mvvm.util.ErrorMessageFactory;
+import com.androidskeleton.mvvm.util.Utils;
 
 import javax.inject.Inject;
 
@@ -29,6 +30,8 @@ public class MainFragment extends DaggerBaseFragment {
     CustomViewModelFactory viewModelFactory;
     @Inject
     ErrorMessageFactory errorMessageFactory;
+    @Inject
+    Utils utils;
     private MainViewModel mainViewModel;
 
     public MainFragment() {
@@ -65,7 +68,7 @@ public class MainFragment extends DaggerBaseFragment {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        mainViewModel.addSubscription(d);
                     }
 
                     @Override
@@ -75,7 +78,7 @@ public class MainFragment extends DaggerBaseFragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        errorMessageFactory.getError(e);
+                        utils.showToast(errorMessageFactory.getError(e));
                     }
 
                     @Override

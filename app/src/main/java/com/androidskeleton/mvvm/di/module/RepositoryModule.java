@@ -11,6 +11,7 @@ import com.androidskeleton.mvvm.data.repository.Repository;
 import com.androidskeleton.mvvm.util.CustomViewModelFactory;
 import com.androidskeleton.mvvm.util.ErrorMessageFactory;
 import com.androidskeleton.mvvm.util.NullOnEmptyConverterFactory;
+import com.androidskeleton.mvvm.util.Utils;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -130,5 +131,11 @@ public class RepositoryModule {
     @Provides
     ViewModelProvider.Factory provideViewModelFactory(Repository repository) {
         return new CustomViewModelFactory(repository);
+    }
+
+    @Singleton
+    @Provides
+    Utils provideUtils(Context context){
+        return new Utils(context);
     }
 }
