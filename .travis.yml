@@ -2,17 +2,18 @@ language: android
 
 android:
   components:
+    # Update Android SDK Tools
     - tools
     - build-tools-27
     - android-27
+    # Support library
+    - extra-android-support
     - extra-android-m2repository
 
 jdk: oraclejdk8
 
 notifications:
   email: false
-
-sudo: false
 
 cache:
   directories:
