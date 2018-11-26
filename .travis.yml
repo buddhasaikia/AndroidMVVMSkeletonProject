@@ -1,4 +1,5 @@
 language: android
+jdk: oraclejdk8
 
 android:
   components:
@@ -9,8 +10,6 @@ android:
     # Support library
     - extra-android-support
     - extra-android-m2repository
-
-jdk: oraclejdk8
 
 notifications:
   email: false
