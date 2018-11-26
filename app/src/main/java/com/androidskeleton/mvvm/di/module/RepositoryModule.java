@@ -99,8 +99,8 @@ public class RepositoryModule {
 
     @Singleton
     @Provides
-    ErrorMessageFactory provideErrorMessageFactory(Context context) {
-        return new ErrorMessageFactory(context);
+    ErrorMessageFactory provideErrorMessageFactory() {
+        return new ErrorMessageFactory();
     }
 
     @Singleton
