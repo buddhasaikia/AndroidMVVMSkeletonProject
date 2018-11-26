@@ -1,7 +1,6 @@
 package com.androidskeleton.mvvm.module.main;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
