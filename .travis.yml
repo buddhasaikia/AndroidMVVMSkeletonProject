@@ -1,23 +1,26 @@
 language: android
 jdk: oraclejdk8
-
 android:
   components:
-    # Update Android SDK Tools
-    - tools
-    - build-tools-27
-    - android-27
-    # Support library
-    - extra-android-support
-    - extra-android-m2repository
-
+  - tools
+  - build-tools-27
+  - android-27
+  - extra-android-support
+  - extra-android-m2repository
 notifications:
   email: false
-
 cache:
   directories:
-    - $HOME/.gradle
-
+  - "$HOME/.gradle"
 script:
 - chmod +x ./gradlew
-#./gradlew test
+#sonar cloud scanner settings
+addons:
+  sonarcloud:
+    organization: "buddhasaikia-github" # the key of the org you chose at step #3
+    token:
+      secure: "y6TDLADmamHqrS1jxxKqRq6WdEhVSGYjjG4EJmxp4b3kO1DoUXE4Orm869f7VCS+BruHJxByXKoHRaoi1tfh8JejSTj2Cqekh2Owi3WtcVZvA0s2pem8NuMtdPGcy42Imna8m1G0y1w0X72vNx2SKJD4UVo/jSVA5hCcSEYLBJLTucmMh+ELeXwg5DMtODx/CZUgUCJPASvYGUXId/Ui6+o+uSxrJKFYcvcufcaKYlazSP8hBWrv5DgfI6JGOKEM8lBQUTXq+u5/G858DAsdtlp8HBLhx/YxJCEIrl8787a4E2b5PXSfWhLlSchHq1z0eFvGXuA5SqyNb5J6ER3BnkRLYA44UtlqYz+Bkg+johXVOnswR19pcD4s9o+P6L4JGfCgOfPEg5Lqm//vQTVMmazFSZpDJo1yvNcxuH4tRBjKRFTWsJfnQ/ajYv6TsHEabbkfeSpd1qzozus38wSo7/EalN7Z8k4JwoW9Swu6qqootYnnN3DvgN9/l1mJZCs+PYQ+KP2KzBmBjvi06jmAmhqGT6i816BI3pHgVTsIt+edzhbqT5mRpSWIqFXU+hIITpymN8XO9kQZxAB/SgZ4FycRcB6BiLc+k1xou3OQgoEzh93FozhYzLZc74ogaDhi4tww3hHstC3dyt2JYqPNWjuPnhJi+Rkv01uGtBbbqgU="
+      # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
