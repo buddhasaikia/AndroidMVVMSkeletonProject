@@ -22,17 +22,14 @@ import static dagger.internal.Preconditions.checkNotNull;
 @Singleton
 public class Repository extends BaseDataSource implements DataSource.Greetings {
 
-    private Context context;
     @NonNull
     private final RemoteDataSource remoteDataSource;
     @NonNull
     private final LocalDataSource localDataSource;
 
     @Inject
-    public Repository(@NonNull Context context,
-                      @NonNull RemoteDataSource awRemoteDataSource,
+    public Repository(@NonNull RemoteDataSource awRemoteDataSource,
                       @NonNull LocalDataSource awLocalDataSource) {
-        this.context = context;
         this.remoteDataSource = checkNotNull(awRemoteDataSource);
         this.localDataSource = checkNotNull(awLocalDataSource);
     }

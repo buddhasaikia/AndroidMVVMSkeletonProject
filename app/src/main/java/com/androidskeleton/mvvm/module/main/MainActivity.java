@@ -9,8 +9,7 @@ import com.androidskeleton.mvvm.R;
 import com.androidskeleton.mvvm.module.base.DaggerBaseActivity;
 import com.androidskeleton.mvvm.util.ActivityUtils;
 
-public class MainActivity extends DaggerBaseActivity
-        implements MainFragment.OnFragmentInteractionListener {
+public class MainActivity extends DaggerBaseActivity {
 
 
     @Override
@@ -24,10 +23,5 @@ public class MainActivity extends DaggerBaseActivity
 
         MainFragment mainFragment = MainFragment.newInstance();
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), mainFragment, R.id.container);
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }

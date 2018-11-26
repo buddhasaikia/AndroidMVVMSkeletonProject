@@ -12,10 +12,6 @@ import io.reactivex.Observable;
 
 public class LocalDataSource extends BaseDataSource implements DataSource.Greetings {
 
-    public LocalDataSource() {
-
-    }
-
     @Override
     public Observable<String> greetings() {
         return null;
