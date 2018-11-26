@@ -1,8 +1,6 @@
 package com.androidskeleton.mvvm.data.repository;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-
 
 import com.androidskeleton.mvvm.data.datasource.LocalDataSource;
 import com.androidskeleton.mvvm.data.datasource.RemoteDataSource;
