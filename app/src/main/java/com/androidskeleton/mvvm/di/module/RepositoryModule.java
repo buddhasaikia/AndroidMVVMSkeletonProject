@@ -123,8 +123,8 @@ public class RepositoryModule {
 
     @Singleton
     @Provides
-    Repository provideRepository(Context context, LocalDataSource localDatasource, RemoteDataSource remoteDatasource) {
-        return new Repository(context, remoteDatasource, localDatasource);
+    Repository provideRepository(LocalDataSource localDatasource, RemoteDataSource remoteDatasource) {
+        return new Repository(remoteDatasource, localDatasource);
     }
 
     @Singleton
